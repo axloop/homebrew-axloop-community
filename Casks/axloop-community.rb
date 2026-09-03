@@ -10,4 +10,8 @@ cask "axloop-community" do
   depends_on arch: :arm64
 
   binary "bin/axloop-community"
+
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-cr", "{{staged_path}}"]
+  end
 end
