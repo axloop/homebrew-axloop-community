@@ -45,7 +45,7 @@ outside the cask. For a custom store use
 
 If the command is missing, run `brew list --cask --versions axloop-community`.
 Run `axloop-crawler doctor` to check for `integrity_verified`. If the browser does
-not open, see the [Community launch help](https://github.com/axloop/axloop-community#If-the-browser-does-not-open).
+not open, see the [Community launch help](https://github.com/axloop/axloop-community#if-the-browser-does-not-open).
 
 The cask links both `axloop-crawler` and compatibility command `axloop-community`
 to the same bundled executable. Activity and hosted enrollment are unavailable.
