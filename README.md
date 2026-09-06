@@ -12,7 +12,7 @@ The public release is currently v0.1.0. Launch its existing interface after a sc
 ```sh
 axloop_bundle="$(brew --caskroom axloop-community)/0.1.0"
 axloop-community scan --bundle "$axloop_bundle"
-axloop-community open --store "$HOME/Library/Application Support/AxLoop Community/community.sqlite"
+axloop-community --store "$HOME/Library/Application Support/AxLoop Community/community.sqlite" open
 ```
 
 ## Prepared v0.2.0 update
@@ -39,7 +39,7 @@ are unavailable in this interface.
 The Mac store is `~/Library/Application Support/AxLoop Community/community.sqlite`.
 It is separate from the installed cask. Export from the local interface before an
 upgrade; do not delete the store to update the application. If you used a custom
-store, pass its absolute path with `open --store`.
+store, use `axloop-crawler --store /absolute/path/community.sqlite open`.
 
 Homebrew checks the pinned archive checksum. The application also verifies its
 release integrity before collection. This cask retains its existing quarantine
