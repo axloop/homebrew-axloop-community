@@ -1,28 +1,35 @@
 # AxLoop Community Homebrew tap
 
-Install the published Community release on an Apple Silicon Mac:
+**v0.2.0 is a Mac-only preview for Apple Silicon.** Clean-machine acceptance is
+pending; local Mac mini install, scan and upgrade checks have passed.
+
+## Install and open
 
 ```sh
 brew tap axloop/axloop-community
 brew install --cask axloop-community
+axloop-crawler open
 ```
 
-The public release is currently v0.1.0. Launch its existing interface after a scan:
+In the browser, click **Run first scan**. Select an item in **Inventory** or
+**Findings** to inspect its evidence. **History** shows previous scans; **Export**
+saves local evidence. Coverage limitations stay visible.
+
+Keep Terminal running while using the interface. Press **Ctrl-C** when finished.
+Closing a browser tab alone does not stop the server. Installation creates no
+background service and requires no hosted account.
+
+## Open it again
 
 ```sh
-axloop_bundle="$(brew --caskroom axloop-community)/0.1.0"
-axloop-community scan --bundle "$axloop_bundle"
-axloop-community --store "$HOME/Library/Application Support/AxLoop Community/community.sqlite" open
+axloop-crawler open
 ```
 
-## Prepared v0.2.0 update
+Your previous results remain available. Use **Run scan** to refresh them.
 
-This branch prepares v0.2.0; its download URL is not live yet. Do not merge the cask
-until the matching release is available and installation acceptance is complete.
-The update links both `axloop-crawler` and the compatibility command
-`axloop-community` to the same bundled executable.
+## Upgrade
 
-After v0.2.0 is published, update and launch with:
+Export from the interface first if you want a backup, then run:
 
 ```sh
 brew update
@@ -30,21 +37,21 @@ brew upgrade --cask axloop-community
 axloop-crawler open
 ```
 
-Use **Run first scan** in the browser. Keep the terminal command running; Ctrl-C
-stops the local server. No hosted account is needed. Activity and hosted enrollment
-are unavailable in this interface.
+The store stays at `~/Library/Application Support/AxLoop Community/community.sqlite`,
+outside the cask. For a custom store use
+`axloop-crawler --store /absolute/path/community.sqlite open`.
 
-## Local data and release verification
+## Troubleshooting and release information
 
-The Mac store is `~/Library/Application Support/AxLoop Community/community.sqlite`.
-It is separate from the installed cask. Export from the local interface before an
-upgrade; do not delete the store to update the application. If you used a custom
-store, use `axloop-crawler --store /absolute/path/community.sqlite open`.
+If the command is missing, run `brew list --cask --versions axloop-community`.
+Run `axloop-crawler doctor` to check for `integrity_verified`. If the browser does
+not open, see the [Community launch help](https://github.com/axloop/axloop-community#If-the-browser-does-not-open).
 
-Homebrew checks the pinned archive checksum. The application also verifies its
-release integrity before collection. This cask retains its existing quarantine
-handling; the archive is not a notarized installer.
+The cask links both `axloop-crawler` and compatibility command `axloop-community`
+to the same bundled executable. Activity and hosted enrollment are unavailable.
 
-[Community releases and current status](https://github.com/axloop/axloop-community/blob/main/docs/COMMUNITY_RELEASES.md)
-are the distribution record. Ruby syntax and metadata checks alone do not establish
-installation or upgrade acceptance.
+Homebrew checks the archive checksum; the application also checks integrity before
+collection. Existing quarantine handling is unchanged; this is not a notarized installer.
+
+[Preview release](https://github.com/axloop/axloop-community/releases/tag/v0.2.0) ·
+[Full installation guide](https://github.com/axloop/axloop-community#readme)

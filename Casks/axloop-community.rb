@@ -12,6 +12,17 @@ cask "axloop-community" do
   binary "bin/axloop-community"
   binary "bin/axloop-community", target: "axloop-crawler"
 
+  caveats <<~EOS
+    Open AxLoop Community:
+      axloop-crawler open
+
+    In the browser, click "Run first scan". Keep Terminal running while using
+    the interface; press Ctrl-C when finished. Reopen with the same command.
+    Your scan history stays on this Mac. No hosted account is required.
+
+    This is an Apple Silicon Mac preview. Clean-machine acceptance is pending.
+  EOS
+
   postflight_steps do
     run "/usr/bin/xattr", args: ["-cr", "{{staged_path}}"]
   end
