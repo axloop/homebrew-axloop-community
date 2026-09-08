@@ -1,7 +1,8 @@
 # AxLoop Community Homebrew tap
 
 **v0.2.0 is a Mac-only preview for Apple Silicon.** Clean-machine acceptance is
-pending; local Mac mini install, scan and upgrade checks have passed.
+pending; local Mac mini install, scan and upgrade checks have passed. Windows and
+Linux support are coming soon; downloads are not available yet.
 
 ## Install and open
 
